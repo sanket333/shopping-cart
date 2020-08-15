@@ -1,0 +1,35 @@
+<%- include('../_layouts/adminheader') %>
+<h2 class="product-title">Products</h2>
+<a href="/admin/products/add-product" class = "btn btn-primary">Add a Product</a>
+<a href="/admin" class = "btn btn-primary">Dashboard</a>
+<br><br>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% Product.forEach(function (product) { %> 
+            <tr id="id_<%= product._id %>" class="<%= product.slug%>">
+                <form method = "POST" action="/admin/products/delete-product/<%= product.title %>?_method=DELETE">
+
+                <td><%= product.title %></td>
+                <td><a href="/admin/products/edit-product/<%= product.title %>">Edit</a></td>
+                <!-- <% if(product.slug == "home") {%>  -->
+                    <td></td>
+                    <!-- <% } else {%> -->
+                        <td><button type = "submit">Delete</button></td>
+                <!-- <% }%> -->
+                
+                    </form> 
+                
+            </tr>
+            
+          <% }) %>
+    </tbody>
+</table>
+
+<%- include('../_layouts/adminfooter') %>

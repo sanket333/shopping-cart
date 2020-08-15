@@ -1,0 +1,20 @@
+<% include _layouts/header%>
+<h1>Products</h1>
+<div class = "row">
+    <% Product.forEach(function(product){ %>
+        <div class="col-sm-4">
+        <form action="/add-to-cart" method = "POST">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="/<%= product.image%>"alt="<%= product.slug %>" height = "180px" width = "286px">
+            <div class="card-body">
+              <h5 class="card-title"><span class="badge badge-pill badge-dark"><%= product.title %></span></h5>
+              <p class="card-text"><%= product.description %></p>
+              <input type="hidden" name = "title" value="<%= product.title %>">
+              <button class="btn btn-primary" type = "submit">Add to Cart</button>
+            </div>
+          </div>
+        </form>
+    </div>
+    <% }) %>
+    
+</div>

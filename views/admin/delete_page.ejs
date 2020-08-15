@@ -1,0 +1,9 @@
+<%- include('../_layouts/header') %>
+<h1>Page Content</h1>
+<form method = "POST" action="/admin/pages/delete-page/<%= slug%>?_method=DELETE">
+    <h2><%=title%></h2>
+    <h4><%=slug%></h4>
+    <h5><%=content%></h5>
+    <input type="submit" value = "delete page">
+</form>
+<%- include('../_layouts/footer') %>

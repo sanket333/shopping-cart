@@ -1,0 +1,12 @@
+<%- include('_layouts/header.ejs') %>
+<h1 class="h1">Cart</h1>
+<form action="/payments" method="POST">
+    <ul class="list-group list-group-flush">
+        <% List.forEach((list) => { %>
+            <li class="list-group-item"><%= list %></li>
+        <%})%>
+    </ul>
+    <button type = "submit" class = "btn btn-info">CheckOut</button>
+</form>
+
+<%- include('_layouts/footer.ejs') %>
